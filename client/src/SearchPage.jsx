@@ -249,7 +249,7 @@ const SearchPage = () => {
       {(pageStatus === "latest_samples") &&
         (
           <Text block style={{ textAlign: 'center' }}>
-            Start searching to get results, or check out the latest samples below.
+            検索を開始して結果を表示するか、以下の最新サンプルをご覧ください。
           </Text>
         )
       }
