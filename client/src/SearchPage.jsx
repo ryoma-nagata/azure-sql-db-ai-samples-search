@@ -175,15 +175,21 @@ const SearchPage = () => {
             <TeachingPopoverBody>
               <TeachingPopoverTitle>AI Agent Powered Search</TeachingPopoverTitle>
               <div>
-                This search engine uses AI Agents to find samples created over time and available at <Link href='https://github.com/Azure-Samples?q=azure-sql' target="_blank">Azure SQL Database Samples repository</Link> and <Link href='https://aka.ms/sqlai-samples' target="_blank"> Azure SQL AI Samples</Link> using a RAG pattern with structured output.
+                この検索エンジンは、AI エージェントを活用して、過去に作成されたサンプルの中から 
+                <a href="https://github.com/Azure-Samples?q=azure-sql" target="_blank">Azure SQL Database Samples リポジトリ</a> および 
+                <a href="https://aka.ms/sqlai-samples" target="_blank">Azure SQL AI Samples</a> にあるものを検索し、
+                <strong>構造化出力を使った RAG パターン</strong>で提供します。
                 <ul>
-                  <li>The searched text is given to an <strong>AI Agent</strong> that decide the best tool to use to answer the question, either using similarity search or generating and executing a SQL query</li>
-                  <li>Similiarity search across all available resources is done using the newly introduced <Link href='https://devblogs.microsoft.com/azure-sql/exciting-announcement-public-preview-of-native-vector-support-in-azure-sql-database/' target="_blank">vector support in Azure SQL Database</Link>.</li>
-                  <li>Results are then passed to a GPT-4o model to generate a sample summary and thoughts with a defined <Link href='https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=rest' target="_blank">structured output</Link>.</li>
-                  <li><strong>Semantic caching</strong> is used to improve the performance of the search engine and reduce LLM calls costs.</li>
+                  <li>入力されたテキストは <strong>AI エージェント</strong> に渡され、「類似検索」または「SQL クエリの生成と実行」のどちらのツールを使うかが判断されます。</li>
+                  <li>類似検索は、<a href="https://devblogs.microsoft.com/azure-sql/exciting-announcement-public-preview-of-native-vector-support-in-azure-sql-database/" target="_blank">Azure SQL Database に新たに導入されたベクトル検索機能</a> を使って、すべてのリソースに対して行われます。</li>
+                  <li>結果は GPT-4o モデルに渡され、<a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=rest" target="_blank">構造化出力</a> に従って、サンプルの要約と考察が生成されます。</li>
+                  <li><strong>セマンティックキャッシング</strong>を使用することで、検索エンジンのパフォーマンスが向上し、LLM の呼び出しコストが削減されます。</li>
                 </ul>
-                If you want to have more details and get the source code of this sample, just ask about "this agentic AI sample" or "this website sample". Read more about creating AI apps with Azure SQL here: <Link href="https://aka.ms/sqlai" target="_blank">https://aka.ms/sqlai</Link>
+                このサンプルの詳細を知りたい方やソースコードを取得したい方は、「このエージェント型 AI サンプル」や「この Web サイトのサンプル」について質問してください。  
+                Azure SQL で AI アプリを構築する方法については以下をご覧ください：  
+                <a href="https://aka.ms/sqlai" target="_blank">https://aka.ms/sqlai</a>
               </div>
+
             </TeachingPopoverBody>
             <TeachingPopoverFooter primary="Got it" />
           </TeachingPopoverSurface>
@@ -215,9 +221,9 @@ const SearchPage = () => {
       </div>
       
       <Text block style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <Alert12Filled /> <strong>Tip:</strong> Try asking questions like "Samples used in Orlando Live 360 in 2024" or "Show me the latest 5 samples".
+        <Alert12Filled /> <strong>Tip:</strong> 次のように質問してみてください：『2024年の Orlando Live 360 で使われたサンプルは？』.
         <br />
-        <Warning12Filled/> <strong>Warning!</strong> This sample is using free Azure OpenAI SKU so throttling and 500 errors can happen during peak usage.      
+        <Warning12Filled/> <strong>Warning!</strong> このサンプルは無料の Azure OpenAI SKU を使用しているため、ピーク時にはスロットリングや 500 エラーが発生する可能性があります。.      
       </Text>
 
       {(pageStatus == "searching") && (

@@ -32,10 +32,10 @@ export default function PageTitle() {
         Azure SQL DB Samples AI Agentic RAG Search 💡🔍
       </div>
       <div className={styles.subtitle}>
-        Find samples using AI Agents search capabilities 🚀
+        AI エージェントの検索機能を活用してサンプルを見つける 🚀
       </div>
       <div className={styles.sampleCount}>
-        {isSampleCountLoading ? 'Finding how many samples are available...' : (<span>There are <Link href="/samples">{sampleCount} samples</Link> in the database.</span>)}
+        {isSampleCountLoading ? '利用可能なサンプルの数を確認しています…' : (<span> <Link href="/samples">{sampleCount} 件のサンプル</Link> がデータベースにあります.</span>)}
       </div>
     </div>
   );
