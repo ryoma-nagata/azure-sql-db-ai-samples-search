@@ -88,9 +88,10 @@ That will connect to Azure SQL and deploy the needed database objects. If you wa
 To test that database deployment was successful and that OpenAI connection is working, you can run the following query using your favourite SQL client:
 
 ```sql
+declare @e varchar(max)
 declare @v vector(1536)
-exec [web].[get_embedding] 'just a sample text', @v output
-select @v
+exec [web].[get_embedding] 'just a sample text', @v output ,@e output
+select @v , @e
 ```
 
 if no error are returned, you'll get a vector as a result.
@@ -120,6 +121,7 @@ The easiest way to deploy the full-stack application is to fork the repository a
 Make sure you give the user thay you are using to connect to the database the permission to run the needed stored procedures:
 
 ```sql
+GRANT SELECT ON SCHEMA::[dbo] TO [<your user>]
 GRANT EXECUTE ON SCHEMA::[web] TO [<your user>]
 GRANT EXECUTE ANY EXTERNAL ENDPOINT TO [<your user>];
 GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[<openai_url>] TO [<your user>];
